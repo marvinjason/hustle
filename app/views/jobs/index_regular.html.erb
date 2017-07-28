@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start timestamp</th>
+      <th>End timestamp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.name %></td>
+        <td><%= job.description %></td>
+        <td><%= job.start_timestamp %></td>
+        <td><%= job.end_timestamp %></td>
+        <td><%= link_to 'Show', job %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

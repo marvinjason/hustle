@@ -1,0 +1,11 @@
+<% if current_user %>
+	<%= link_to 'Jobs', jobs_path %>
+	<% if current_user.is_admin? %>
+		<%= link_to 'Overview', overview_path %>
+	<% else %>
+		<%= link_to 'Profile', profile_path %>
+	<% end %>
+	<%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<% else %>
+	<%= link_to 'Login', new_user_session_path %>
+<% end %>
