@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  layout :resolve_layout
 
   # GET /jobs
   # GET /jobs.json
@@ -36,7 +37,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.html { redirect_to manage_path }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
@@ -64,7 +65,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to manage_path }
       format.json { head :no_content }
     end
   end
@@ -77,6 +78,14 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:name, :description, :start_timestamp, :end_timestamp)
+      params.require(:job).permit(:name, :description, :start_timestamp, :end_timestamp, :weight)
+    end
+
+    def resolve_layout
+      if action_name == 'new'
+        'admin_layout'
+      else
+        'application'
+      end
     end
 end

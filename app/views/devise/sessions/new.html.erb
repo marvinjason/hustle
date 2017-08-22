@@ -1,0 +1,22 @@
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Login</h4>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.text_field :email, class: 'form-control input-sm chat-input', placeholder: 'Email' %>
+              </br>
+              <%= f.password_field :password, class: 'form-control input-sm chat-input', placeholder: 'Pasword' %>
+              </br>
+              <div class="wrapper">
+              <span class="group-btn">    
+                  <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+            </span>
+            <% end %>
+            </div>
+            </div>
+        
+        </div>
+    </div>
+</div>

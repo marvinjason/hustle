@@ -1,0 +1,189 @@
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <%= link_to 'Manager', admin_path, class: 'navbar-brand' %>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                <ul class="dropdown-menu message-dropdown">
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                <span class="pull-left">
+                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>Marvin Sy</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>I have finished this task...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                <span class="pull-left">
+                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>Ninna Pioquinto</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>I have inquiries about this Sir.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-preview">
+                        <a href="#">
+                            <div class="media">
+                                <span class="pull-left">
+                                    <img class="media-object" src="http://placehold.it/50x50" alt="">
+                                </span>
+                                <div class="media-body">
+                                    <h5 class="media-heading"><strong>Arjay Veliganio</strong>
+                                    </h5>
+                                    <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                    <p>The project will be delayed for 2 more days...</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="message-footer">
+                        <a href="#">Read All New Messages</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                <ul class="dropdown-menu alert-dropdown">
+                    <li>
+                        <a href="#">Syd De Ama <span class="label label-default">Stopped</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Jose Miranda <span class="label label-primary">Inquiry</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Marvin Sy <span class="label label-success">Finish</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Ninna Pioquinto <span class="label label-primary">Inquiry</span></a>
+                    </li>
+                    <li>
+                        <a href="#">Arjay Veliganio <span class="label label-danger">Delayed</span></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">View All</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <%= current_user.email %><b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <!-- <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a> -->
+                        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <%= link_to admin_path do %>
+                        <i class="fa fa-fw fa-dashboard"></i> Dashboard
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to charts_path do %>
+                        <i class="fa fa-fw fa-bar-chart-o"></i> Predictive Analysis
+                    <% end %>
+                </li>
+                 <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-list"></i> Jobs <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse">
+                        <li>
+                            <%= link_to manage_path do %>
+                                 <i class="fa fa-fw fa-pencil-square-o"></i> Manage Jobs
+                            <% end %>
+                        </li>
+                        <li>
+                            <%= link_to new_job_path do %>
+                                 <i class="fa fa-fw fa-plus-square-o"></i> Add Jobs
+                            <% end %>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <%= link_to view_path do %>
+                        <i class="fa fa-fw fa-table"></i> View Employees
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="tile">
+                        <%= image_tag '001', class: 'circle' %>
+                        <h2>Russ Santos</h2> <br>
+                        <h4>Management</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="tile">
+                        <%= image_tag '002', class: 'circle' %>
+                        <h2>Isaiah Inocentes</h2> <br>
+                        <h4>Management</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="tile">
+                        <%= image_tag '003', class: 'circle' %>
+                        <h2>Marvin Sy</h2> <br>
+                        <h4>Development</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="tile">
+                    <%= image_tag '004', class: 'circle' %>
+                        <h2>Ninna Pioquinto</h2> <br>
+                        <h4>Design</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

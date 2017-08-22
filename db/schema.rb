@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 20170728222506) do
   create_table "jobs", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "weight"
     t.datetime "start_timestamp"
     t.datetime "end_timestamp"
     t.integer "user_id"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
